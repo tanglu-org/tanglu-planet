@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Planet Tanglu</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="planet.css" />
+  <TMPL_IF feedtype>
+    <link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">"
+     title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"
+     type="application/<TMPL_VAR feedtype>+xml">
+  </TMPL_IF>
+ </head>
+ <body>
+  <div class="header">
+   <div class="logo"><img src="images/planet.png" width="114" height="103" border="0" alt="" /></div>
+   <div class="title"><TMPL_VAR name></div>
+  </div>
+
+  <div class="blog">
+  <TMPL_LOOP Items>
+  <TMPL_IF new_date>
+   <table class="datebox" cellspacing="0" cellpadding="0">
+    <tr>
+     <td style="background-image: url(images/datebox-top.png); background-repeat: repeat-x;"></td>
+     <td width="7"><img src="images/datebox-ur.png" width="7" height="7" border="0" alt="" /></td>
+    </tr>
+    <tr>
+     <td class="datebox-content"><TMPL_VAR new_date></td>
+     <td style="background-image: url(images/datebox-right.png); background-repeat: repeat-y;"></td>
+    </tr>
+    <tr>
+     <td style="background-image: url(images/datebox-bottom.png); background-repeat: repeat-x;"></td>
+     <td width="7"><img src="images/datebox-lr.png" width="7" height="7" border="0" alt="" /></td>
+    </tr>
+   </table>
+  </TMPL_IF>
+   <div class="blog-entry">
+    <div class="blog-header">
+     <TMPL_IF channel_face><img align="right" src="<TMPL_VAR channel_face>" /></TMPL_IF>
+     <a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title ESCAPE="HTML">"><TMPL_VAR channel_name></a><TMPL_IF title>: <a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></TMPL_IF>
+    </div>
+    <div class="blog-body">
+    <TMPL_VAR content>
+    </div>
+    <div class="blog-footer">
+    <a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>by <TMPL_VAR author> at </TMPL_IF><TMPL_VAR date><TMPL_IF category> under <TMPL_VAR category></TMPL_IF></a>
+    </div>
+   </div>
+  </TMPL_LOOP>
+  </div>
+
+  <div class="side">
+   <table class="sidebox" cellspacing="0" cellpadding="0">
+    <tr>
+     <td width="12"><img src="images/sidebox-ul.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-top.png); background-repeat: repeat-x;"></td>
+     <td width="12"><img src="images/sidebox-ur.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+    <tr>
+     <td rowspan="2" style="background-image: url(images/sidebox-left.png); background-repeat: repeat-y;"></td>
+     <td class="sidebox-title">planet.tg.o</td>
+     <td rowspan="2" style="background-image: url(images/sidebox-right.png); background-repeat: repeat-y;"></td>
+    </tr>
+    <tr>
+     <td class="sidebox-content">
+       planet.tanglu.org is powered by <a href="http://intertwingly.net/code/venus/">Venus</a>,
+       and the <a href="http://tanglu.org">tanglu.org</a> community.
+       <br />
+       <a href="rss10.xml"><img src="images/rss10.png" width="80" height="15" alt="RSS 1.0 Feed"></a>
+       <a href="rss20.xml"><img src="images/rss20.png" width="80" height="15" alt="RSS 2.0 Feed"></a><br />
+       <a href="foafroll.xml"><img src="images/foaf.png" width="80" height="15" alt="FOAF Subscriptions"></a>
+       <a href="opml.xml"><img src="images/opml.png" width="80" height="15" alt="OPML Subscriptions"></a><br />
+       <a href="http://www.catb.org/hacker-emblem/"><img src="images/hacker.png" width="80" height="15" alt="Hacker"></a>
+       <a href="http://www.planetplanet.org/"><img src="images/planet-sm.png" width="80" height="15" alt="Planet"></a>
+     </td>
+    </tr>
+    <tr>
+     <td><img src="images/sidebox-ll.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-bottom.png); background-repeat: repeat-x;"></td>
+     <td><img src="images/sidebox-lr.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+   </table>
+   <br />
+   <table class="sidebox" cellspacing="0" cellpadding="0">
+    <tr>
+     <td width="12"><img src="images/sidebox-ul.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-top.png); background-repeat: repeat-x;"></td>
+     <td width="12"><img src="images/sidebox-ur.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+    <tr>
+     <td rowspan="2" style="background-image: url(images/sidebox-left.png); background-repeat: repeat-y;"></td>
+     <td class="sidebox-title">Subscriptions</td>
+     <td rowspan="2" style="background-image: url(images/sidebox-right.png); background-repeat: repeat-y;"></td>
+    </tr>
+    <tr>
+     <td class="sidebox-content">
+     <TMPL_LOOP Channels>
+      <a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a><br />
+     </TMPL_LOOP>
+     </td>
+    </tr>
+    <tr>
+     <td><img src="images/sidebox-ll.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-bottom.png); background-repeat: repeat-x;"></td>
+     <td><img src="images/sidebox-lr.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+   </table>
+   <br />
+   <table class="sidebox" cellspacing="0" cellpadding="0">
+    <tr>
+     <td width="12"><img src="images/sidebox-ul.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-top.png); background-repeat: repeat-x;"></td>
+     <td width="12"><img src="images/sidebox-ur.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+    <tr>
+     <td rowspan="2" style="background-image: url(images/sidebox-left.png); background-repeat: repeat-y;"></td>
+     <td class="sidebox-title">Planetarium</td>
+     <td rowspan="2" style="background-image: url(images/sidebox-right.png); background-repeat: repeat-y;"></td>
+    </tr>
+    <tr>
+     <td class="sidebox-content">
+	<a href="http://planet.debian.org/">Planet Debian</a><br />
+	<a href="http://planet.freedesktop.org/">Planet Freedesktop</a><br />
+	<a href="http://planet.gnome.org/">Planet GNOME</a><br />
+	<a href="http://planetkde.org/">Planet KDE</a><br />
+    </td>
+    </tr>
+    <tr>
+     <td><img src="images/sidebox-ll.png" width="12" height="12" border="0" alt="" /></td>
+     <td style="background-image: url(images/sidebox-bottom.png); background-repeat: repeat-x;"></td>
+     <td><img src="images/sidebox-lr.png" width="12" height="12" border="0" alt="" /></td>
+    </tr>
+   </table>
+  </div>
+
+  <div class="copyright">
+   Layout copyright &copy; 2004 <a href="mailto:chipx86@chipx86.com">Christian Hammond</a>.<br />
+   Content copyright by their respective authors.<br />
+   To get your feed here, or for technical questions, bother <a href="mailto:matthias at tenstral dot net">mak</a>.
+  </div>
+ </body>
+</html>
